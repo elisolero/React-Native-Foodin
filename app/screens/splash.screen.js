@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import { Image, View } from 'react-native';
-import {inject} from'mobx-react';
+import {inject} from 'mobx-react';
 
 @inject('stores')
 export default class SplashScreen extends Component{
@@ -9,11 +9,13 @@ export default class SplashScreen extends Component{
     }
 
     componentDidMount(){
-        console.log(this.props)
+       
         const {stores,navigation} = this.props;
-        // setTimeout(() => {
-        //     navigation.navigate('login')
-        // },stores.config.SplashTime)
+        
+        setTimeout(() => {
+            console.log(stores.config)
+            navigation.navigate('Login')
+        },stores.config.splashTime)
     }
 
     render(){

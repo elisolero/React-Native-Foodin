@@ -1,6 +1,6 @@
 export default class ConfigStore{
     constructor(){
-        this.splashTime = 1000;
+        this.splashTime = 3000;
         this.splashImg = require('../../images/splash.jpg')
         this.loginBG = require('../../images/login.jpg')
     }
