@@ -8,7 +8,7 @@ export default class ConfigStore{
         return this.splashImg;
     }
 
-    get splashTime(){
+    get SplashTime(){
         return this.splashTime;
     }
 }
