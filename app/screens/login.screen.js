@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Container,Content} from 'native-base'
+import { Container, Header, Content, CardItem, Thumbnail, Text, Button, Icon, Left, Body, Right } from 'native-base'
 import {StyleSheet,Dimensions,View,Image} from 'react-native'
 import Login from '../components/login.component';
 import {inject} from 'mobx-react';
@@ -12,19 +12,31 @@ export default class LoginScreen extends Component{
         super(props);
     }
 
+    async componentWillMount() {
+        await Expo.Font.loadAsync({
+          'Roboto': require('native-base/Fonts/Roboto.ttf'),
+          'Roboto_medium': require('native-base/Fonts/Roboto_medium.ttf'),
+        });
+      }
+      
+
+
     render (){
         const {stores} = this.props;
-        console.log(stores.config.LoginBG)
+        console.log('config', stores.config);
+
     return (
-      <Container>
-        <View style={styles.container}>
-          <Content scrollEnabled={false}>
+    <Container>
+        {/* <Content scrollEnabled={false}> */}
+            <View style={{flex:1}}>
             <Image style={styles.loginBackground} source={stores.config.LoginBG}/>
-              <View style={styles.loginForeground}>
-                <Login {...this.props}/>
-              </View>
-          </Content>
-        </View>
+
+                <View style={styles.loginForeground}>
+                    <Login {...this.props}/>
+                </View>
+
+            </View>
+        {/* </Content> */}
       </Container>
     )
     }
@@ -36,20 +48,26 @@ const styles = StyleSheet.create({
       position: 'absolute',
       bottom: 0,
       left: 0,
-      right: 0
+      right: 0,
+      backgroundColor:'green'
     },
+    
     loginBackground: {
       flex: 1,
       width: null,
-      height: null
+      height: null,
+      backgroundColor:'red'
     },
     loginForeground: {
-      flex:1,
-      marginTop: Dimensions.get('window').height/1.75,
-      paddingTop: 20,
-      paddingLeft: 10,
-      paddingRight: 10,
-      paddingBottom: 90,
-      bottom: 0
+    //   marginTop: Dimensions.get('window').height/1.75,
+        position: 'absolute',
+        paddingTop: 20,
+        paddingLeft: 10,
+        paddingRight: 10,
+        paddingBottom: 90,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        backgroundColor: 'rgba(52, 52, 52, 0)'
     }
   })

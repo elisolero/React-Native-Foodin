@@ -13,7 +13,7 @@ export default class SplashScreen extends Component{
         const {stores,navigation} = this.props;
         
         setTimeout(() => {
-            console.log(stores.config)
+            // console.log(stores.config)
             navigation.navigate('Login')
         },stores.config.splashTime)
     }
